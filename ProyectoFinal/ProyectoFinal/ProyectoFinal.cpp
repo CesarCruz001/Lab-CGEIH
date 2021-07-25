@@ -213,9 +213,9 @@ int main()
 	Model BrazoIzq((char*)"Models/Personaje/brazoizq.obj");
 	Model Cabeza((char*)"Models/Personaje/cabeza.obj");
 
-	Model Repisa((char*)"Models/Repisa/Repisa.obj");
+	/*Model Repisa((char*)"Models/Repisa/Repisa.obj");
 	Model Repisa2((char*)"Models/Repisa_2/Repisa2.obj");
-	Model Repisa3((char*)"Models/Repisa_3/Repisa_3.obj");
+	Model Repisa3((char*)"Models/Repisa_3/Repisa_3.obj");*/
 
 
 
@@ -608,26 +608,26 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		Cabeza.Draw(lightingShader);
 
-		//Repisa
-		view = camera.GetViewMatrix();
-		model = glm::mat4(1);
-		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Repisa.Draw(lightingShader);
+		////Repisa
+		//view = camera.GetViewMatrix();
+		//model = glm::mat4(1);
+		//model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Repisa.Draw(lightingShader);
 
-		//Repisa2
-		view = camera.GetViewMatrix();
-		model = glm::mat4(1);
-		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Repisa2.Draw(lightingShader);
+		////Repisa2
+		//view = camera.GetViewMatrix();
+		//model = glm::mat4(1);
+		//model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Repisa2.Draw(lightingShader);
 
-		//Repisa3
-		view = camera.GetViewMatrix();
-		model = glm::mat4(1);
-		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		Repisa3.Draw(lightingShader);
+		////Repisa3
+		//view = camera.GetViewMatrix();
+		//model = glm::mat4(1);
+		//model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//Repisa3.Draw(lightingShader);
 
 
 
