@@ -1,0 +1,4 @@
+C:/Users/Cesar Cruz/Desktop/Lab_CGEIH/ProyectoFinal/External Libraries/glm/glm/out/build/x64-Debug (predeterminado)/CMakeFiles/edit_cache.dir
+C:/Users/Cesar Cruz/Desktop/Lab_CGEIH/ProyectoFinal/External Libraries/glm/glm/out/build/x64-Debug (predeterminado)/CMakeFiles/glm_static.dir
+C:/Users/Cesar Cruz/Desktop/Lab_CGEIH/ProyectoFinal/External Libraries/glm/glm/out/build/x64-Debug (predeterminado)/CMakeFiles/glm_shared.dir
+C:/Users/Cesar Cruz/Desktop/Lab_CGEIH/ProyectoFinal/External Libraries/glm/glm/out/build/x64-Debug (predeterminado)/CMakeFiles/rebuild_cache.dir
