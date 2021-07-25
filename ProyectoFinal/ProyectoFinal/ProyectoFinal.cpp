@@ -46,9 +46,14 @@ float rot = 0.0f;
 
 
 // Light attributes
-glm::vec3 lightPos(0.0f, 0.0f, 0.0f);
+glm::vec3 lightPos(0.0f, 0.0f, 1.0f);
 glm::vec3 PosIni(-95.0f, 1.0f, -45.0f);
 bool active;
+
+//SkyBox Variables.
+int iluminacion = 0;
+bool sky = false;
+int numsky;
 
 
 // Deltatime
@@ -205,6 +210,7 @@ int main()
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 	Shader SkyBoxshader("Shaders/SkyBox.vs", "Shaders/SkyBox.frag");
 
+	Model Casa((char*)"Models/Casa/Casa.obj");
 	Model Repisa((char*)"Models/Repisa/Repisa.obj");
 	Model Repisa2((char*)"Models/Repisa_2/Repisa2.obj");
 	Model Repisa3((char*)"Models/Repisa_3/Repisa_3.obj");
@@ -418,9 +424,17 @@ int main()
 	faces.push_back("SkyBox/SkyBottom.tga");
 	faces.push_back("SkyBox/SkyBack.tga");
 	faces.push_back("SkyBox/SkyFront.tga");
-	
-	GLuint cubemapTexture = TextureLoading::LoadCubemap(faces);
 
+	vector<const GLchar*> faces2;
+	faces2.push_back("SkyBox/SkyRight2.tga");
+	faces2.push_back("SkyBox/SkyLeft2.tga");
+	faces2.push_back("SkyBox/SkyTop2.tga");
+	faces2.push_back("SkyBox/SkyBottom2.tga");
+	faces2.push_back("SkyBox/SkyBack2.tga");
+	faces2.push_back("SkyBox/SkyFront2.tga");
+
+	vector<const GLchar*> mysky[] = { faces, faces2 };
+	GLuint cubemapTexture = TextureLoading::LoadCubemap(mysky[0]);
 	glm::mat4 projection = glm::perspective(camera.GetZoom(), (GLfloat)SCREEN_WIDTH / (GLfloat)SCREEN_HEIGHT, 0.1f, 1000.0f);
 
 	// Game loop
@@ -457,7 +471,17 @@ int main()
 		// == ==========================
 		// Directional light
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.0f, 1.0f, 1.0f);
+		switch (iluminacion)
+		{
+		case 0:
+			glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 1.0f, 1.0f, 1.0f);
+			break;
+		case 1:
+			glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.6f, 0.6f, 0.6f);
+			break;
+		default:
+			break;
+		}
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.diffuse"), 0.4f, 0.4f, 0.4f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.specular"), 0.5f, 0.5f, 0.5f);
 
@@ -598,6 +622,12 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		Tv.Draw(lightingShader);
 
+		//Casa.
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Casa.Draw(lightingShader);
+
 		//Silla.
 		/*view = camera.GetViewMatrix();
 		model = glm::mat4(1);
@@ -654,6 +684,7 @@ int main()
 
 		// skybox cube
 		glBindVertexArray(skyboxVAO);
+		GLuint cubemapTexture = TextureLoading::LoadCubemap(mysky[numsky]);
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -785,6 +816,33 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 			LightP1 = glm::vec3(1.0f, 0.0f, 0.0f);
 		else
 			LightP1 = glm::vec3(0.0f, 0.0f, 0.0f);
+	}
+
+	if (keys[GLFW_KEY_Q])
+	{
+		sky = !sky;
+		if (sky)
+		{
+			numsky = 1;
+
+
+		}
+		else
+		{
+			numsky = 0;
+		}
+
+		iluminacion = !iluminacion;
+		if (iluminacion)
+		{
+			iluminacion = 1;
+
+
+		}
+		else
+		{
+			iluminacion = 0;
+		}
 	}
 }
 
