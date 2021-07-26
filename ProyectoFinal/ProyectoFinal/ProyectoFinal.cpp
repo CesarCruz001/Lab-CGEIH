@@ -239,6 +239,8 @@ int main()
 	Model Auto2((char*)"Models/Auto2/Auto2.obj");
 	Model Llantasdelanteras2((char*)"Models/Auto2/Llantasdelanteras2.obj");
 	Model Llantastraseras2((char*)"Models/Auto2/Llantastraseras2.obj");
+	Model Puerta((char*)"Models/Puerta/Puerta.obj");
+	Model Marcopuerta((char*)"Models/Puerta/Marcopuerta.obj");
 	/*Model Silla((char*)"Models/Silla/Silla.obj");
 	Model Jarron((char*)"Models/Jarron/Jarron.obj");*/
 
@@ -748,6 +750,24 @@ int main()
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Llantastraseras2.Draw(lightingShader);
+
+		//Marco puerta
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Marcopuerta.Draw(lightingShader);
+
+		//Puerta
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Puerta.Draw(lightingShader);
 
 		////Silla.
 		//view = camera.GetViewMatrix();
