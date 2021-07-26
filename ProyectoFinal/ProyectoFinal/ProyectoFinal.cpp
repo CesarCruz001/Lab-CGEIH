@@ -1061,7 +1061,7 @@ void animacion()
 		if (recorridoB)
 		{
 			
-			
+			//rotKit2 = 90;
 			movKitX2 += 5.0;
 			if (movKitX2 > 170)
 			{
@@ -1073,6 +1073,7 @@ void animacion()
 		if (recorridoC)
 		{
 			
+			//rotKit2 = 180;
 			movKitZ2 -= 5.0;
 
 			if (movKitZ2 < -50)
@@ -1084,7 +1085,7 @@ void animacion()
 
 		if (recorridoD)
 		{
-			
+			//rotKit2 = 270;
 			movKitX2 -= 5.0;
 
 			if (movKitX2 < 25)
