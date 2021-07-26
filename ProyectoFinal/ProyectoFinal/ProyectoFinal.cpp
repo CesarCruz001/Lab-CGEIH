@@ -223,8 +223,8 @@ int main()
 	Model MesaTv((char*)"Models/Mesa/MesaTV.obj");
 	Model MesaCentro((char*)"Models/Mesa_2/Mesa_2.obj");
 	Model Tv((char*)"Models/TV/SmartTV.obj");
-	//Model Silla((char*)"Models/Silla/Silla.obj");
-	//Model Jarron((char*)"Models/Jarron/Jarron.obj");
+	/*Model Silla((char*)"Models/Silla/Silla.obj");
+	Model Jarron((char*)"Models/Jarron/Jarron.obj");*/
 
 
 
@@ -583,7 +583,7 @@ int main()
 		//Repisa
 		view = camera.GetViewMatrix();
 		glm::mat4 model(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, 1.0f)); 
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f)); 
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Repisa.Draw(lightingShader);
@@ -591,7 +591,7 @@ int main()
 		//Repisa2
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Repisa2.Draw(lightingShader);
@@ -599,7 +599,7 @@ int main()
 		//Repisa3
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Repisa3.Draw(lightingShader);
@@ -607,7 +607,7 @@ int main()
 		//Bocina
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Bocina.Draw(lightingShader);
@@ -615,7 +615,7 @@ int main()
 		//Cajonera
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cajonera.Draw(lightingShader);
@@ -623,7 +623,7 @@ int main()
 		//Cuadro
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadro.Draw(lightingShader);
@@ -631,7 +631,7 @@ int main()
 		//MesaTv
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		MesaTv.Draw(lightingShader);
@@ -639,7 +639,7 @@ int main()
 		//Mesa de centro.
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		MesaCentro.Draw(lightingShader);
@@ -647,7 +647,7 @@ int main()
 		//Pantalla.
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Tv.Draw(lightingShader);
@@ -655,26 +655,26 @@ int main()
 		//Casa.
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Casa.Draw(lightingShader);
 
-		//Silla.
-		/*view = camera.GetViewMatrix();
-		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
-		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Silla.Draw(lightingShader);*/
+		////Silla.
+		//view = camera.GetViewMatrix();
+		//model = glm::mat4(1);
+		//model = glm::translate(model, glm::vec3(0.0f, -3.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		//Silla.Draw(lightingShader);
 
-		//Jarron.
-		/*view = camera.GetViewMatrix();
-		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, -3.0f, -1.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
-		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		Jarron.Draw(lightingShader);*/
+		////Jarron.
+		//view = camera.GetViewMatrix();
+		//model = glm::mat4(1);
+		//model = glm::translate(model, glm::vec3(0.0f, -3.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		//Jarron.Draw(lightingShader);
 
 
 
