@@ -89,6 +89,21 @@ bool recorrido5 = false;
 bool recorrido6 = false;
 bool recorrido7 = false;
 
+//Variables para animación de auto 1. 
+//Animación del coche
+float movKitX2 = 2.0;
+float movKitZ2 = -20.0;
+float rotKit2 = 0.0;
+
+bool circuito2 = false;
+bool recorridoA = true;
+bool recorridoB = false;
+bool recorridoC = false;
+bool recorridoD = false;
+bool recorridoE = false;
+bool recorridoF = false;
+bool recorridoG = false;
+
 // Deltatime
 GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
@@ -740,7 +755,7 @@ int main()
 		//Auto2
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
+		model = glm::translate(model, glm::vec3(movKitX2, -7.0f, movKitZ2));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Auto2.Draw(lightingShader);
@@ -748,7 +763,7 @@ int main()
 		//Llatasdelanteras
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
+		model = glm::translate(model, glm::vec3(movKitX2, -7.0f, movKitZ2));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Llantasdelanteras2.Draw(lightingShader);
@@ -756,7 +771,7 @@ int main()
 		//Llatastraseras2
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
+		model = glm::translate(model, glm::vec3(movKitX2, -7.0f, movKitZ2));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Llantastraseras2.Draw(lightingShader);
@@ -1030,6 +1045,92 @@ void animacion()
 		}
 	}
 
+	if (circuito2)
+	{
+		if (recorridoA)
+		{
+			movKitZ2 += 5.0f;
+			if (movKitZ2 > 115 )
+			{
+				recorridoA = false;
+				recorridoB = true;
+			}
+
+		}
+
+		if (recorridoB)
+		{
+			
+			
+			movKitX2 += 5.0;
+			if (movKitX2 > 170)
+			{
+				recorridoB = false;
+				recorridoC = true;
+			}
+		}
+
+		if (recorridoC)
+		{
+			
+			movKitZ2 -= 5.0;
+
+			if (movKitZ2 < -50)
+			{
+				recorridoC = false;
+				recorridoD = true;
+			}
+		}
+
+		if (recorridoD)
+		{
+			
+			movKitX2 -= 5.0;
+
+			if (movKitX2 < 25)
+			{
+				recorridoD = false;
+				recorridoE = true;
+			}
+		}
+
+		if (recorridoE)
+		{
+			rotKit2 = 0.0;
+			movKitZ2 += 0.5;
+
+			if (movKitZ2 > -30 )
+			{
+				recorridoE = false;
+				recorridoF = true;
+			}
+		}
+
+		if (recorridoF)
+		{
+			movKitZ2 += 0.5;
+			movKitX2 -= 0.5;
+
+			if (movKitX2 < 4)
+			{
+				recorridoF = false;
+				recorridoG = true;
+			}
+		}
+
+		if (recorridoG)
+		{
+			rotKit2 = 0.0;
+			movKitZ2 -= 0.2;
+
+			if (movKitZ2 < -20)
+			{
+				recorridoG = false;
+				recorridoA = true;
+			}
+		}
+	}
+
 
 		//Movimiento del personaje
 
@@ -1202,6 +1303,19 @@ void DoMovement()
 	if (keys[GLFW_KEY_K])
 	{
 		circuito = false;
+
+	}
+
+	if (keys[GLFW_KEY_U])
+	{
+
+		circuito2 = true;
+
+	}
+
+	if (keys[GLFW_KEY_J])
+	{
+		circuito2 = false;
 
 
 	}
