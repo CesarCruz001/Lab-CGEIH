@@ -914,8 +914,8 @@ void animacion()
 
 		if (movimiento1)
 		{
-			TvZ += 0.1;
-			if (TvZ > -17.5)
+			TvZ -= 0.1;
+			if (TvZ < -22.5)
 			{
 				movimiento1 = false;
 				movimiento2 = true;
@@ -924,8 +924,8 @@ void animacion()
 
 		if (movimiento2)
 		{
-			TvZ -= 0.1;
-			if (TvZ < -20.0)
+			TvZ += 0.1;
+			if (TvZ > -20.0)
 			{
 				movimiento2 = false;
 				movimiento3 = true;
@@ -948,8 +948,8 @@ void animacion()
 	{
 		if (recorrido1)
 		{
-			movKitZ += 0.5f;
-			if (movKitZ > 10)
+			movKitZ -= 0.5f;
+			if (movKitZ < -23)
 			{
 				recorrido1 = false;
 				recorrido2 = true;
@@ -960,9 +960,9 @@ void animacion()
 		if (recorrido2)
 		{
 			//rotKit = 45;
-			movKitZ -= 0.5f;
-			movKitX -= 0.5f;
-			if (movKitX < -10)
+			movKitZ += 0.5f;
+			movKitX += 0.5f;
+			if (movKitX > 12)
 			{
 				recorrido2 = false;
 				recorrido3 = true;
@@ -972,9 +972,9 @@ void animacion()
 		if (recorrido3)
 		{
 			rotKit = 0.0;
-			movKitZ -= 2.0;
+			movKitZ += 10.0;
 
-			if (movKitZ < -150)
+			if (movKitZ > 130)
 			{
 				recorrido3 = false;
 				recorrido4 = true;
@@ -984,9 +984,9 @@ void animacion()
 		if (recorrido4)
 		{
 			//rotKit = 90;
-			movKitX -= 2.0;
+			movKitX += 10.0;
 
-			if (movKitX < -165)
+			if (movKitX > 155)
 			{
 				recorrido4 = false;
 				recorrido5 = true;
@@ -996,9 +996,9 @@ void animacion()
 		if (recorrido5)
 		{
 			//rotKit = 180;
-			movKitZ += 2.0;
+			movKitZ -= 10.0;
 
-			if (movKitZ > 9)
+			if (movKitZ < -20)
 			{
 				recorrido5 = false;
 				recorrido6 = true; 
@@ -1008,9 +1008,9 @@ void animacion()
 		if (recorrido6)
 		{
 			//rotKit = 270;
-			movKitX += 2.0;
+			movKitX -= 10.0;
 
-			if (movKitX > 2)
+			if (movKitX < 4)
 			{
 				recorrido6 = false; 
 				recorrido7 = true; 
@@ -1020,9 +1020,9 @@ void animacion()
 		if (recorrido7)
 		{
 			rotKit = 0.0;
-			movKitZ -= 0.2;
+			movKitZ += 0.2;
 
-			if (movKitZ < 7)
+			if (movKitZ > -17)
 			{
 				recorrido7 = false;
 				recorrido1 = true; 
