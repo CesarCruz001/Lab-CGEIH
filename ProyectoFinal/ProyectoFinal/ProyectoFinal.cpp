@@ -223,6 +223,7 @@ int main()
 	Model MesaTv((char*)"Models/Mesa/MesaTV.obj");
 	Model MesaCentro((char*)"Models/Mesa_2/Mesa_2.obj");
 	Model Tv((char*)"Models/TV/SmartTV.obj");
+	Model Calle((char*)"Models/Calle/Calle.obj");
 	/*Model Silla((char*)"Models/Silla/Silla.obj");
 	Model Jarron((char*)"Models/Jarron/Jarron.obj");*/
 
@@ -659,6 +660,14 @@ int main()
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Casa.Draw(lightingShader);
+
+		//Calle
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Calle.Draw(lightingShader);
 
 		////Silla.
 		//view = camera.GetViewMatrix();
