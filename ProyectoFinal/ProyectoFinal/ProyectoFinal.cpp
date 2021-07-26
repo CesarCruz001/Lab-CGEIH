@@ -233,6 +233,12 @@ int main()
 	Model MesaCentro((char*)"Models/Mesa_2/Mesa_2.obj");
 	Model Tv((char*)"Models/TV/SmartTV.obj");
 	Model Calle((char*)"Models/Calle/Calle.obj");
+	Model Auto((char*)"Models/Auto/Auto.obj");
+	Model Llantasdelanteras((char*)"Models/Auto/Llantasdelanteras.obj");
+	Model Llantastraseras((char*)"Models/Auto/Llantastraseras.obj");
+	Model Auto2((char*)"Models/Auto2/Auto2.obj");
+	Model Llantasdelanteras2((char*)"Models/Auto2/Llantasdelanteras2.obj");
+	Model Llantastraseras2((char*)"Models/Auto2/Llantastraseras2.obj");
 	/*Model Silla((char*)"Models/Silla/Silla.obj");
 	Model Jarron((char*)"Models/Jarron/Jarron.obj");*/
 
@@ -677,6 +683,54 @@ int main()
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Calle.Draw(lightingShader);
+
+		//Auto
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Auto.Draw(lightingShader);
+
+		//Llatasdelanteras
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Llantasdelanteras.Draw(lightingShader);
+
+		//Llatastraseras
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Llantastraseras.Draw(lightingShader);
+
+		//Auto2
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Auto2.Draw(lightingShader);
+
+		//Llatasdelanteras
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Llantasdelanteras2.Draw(lightingShader);
+
+		//Llatastraseras2
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Llantastraseras2.Draw(lightingShader);
 
 		////Silla.
 		//view = camera.GetViewMatrix();
