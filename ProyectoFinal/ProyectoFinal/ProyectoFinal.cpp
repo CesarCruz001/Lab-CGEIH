@@ -55,6 +55,15 @@ int iluminacion = 0;
 bool sky = false;
 int numsky;
 
+// Variables para animación de pantalla. 
+float TvX = 2.0;
+float TvY = -7.0;
+float TvZ = 4.0;
+
+bool movimientoTv = false;
+bool movimiento1 = true;
+bool movimiento2 = false;
+bool movimiento3 = false;
 
 // Deltatime
 GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
@@ -648,7 +657,7 @@ int main()
 		//Pantalla.
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::translate(model, glm::vec3(TvX, TvY, TvZ));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Tv.Draw(lightingShader);
@@ -764,6 +773,40 @@ int main()
 
 void animacion()
 {
+	if (movimientoTv)
+	{
+
+		if (movimiento1)
+		{
+			TvZ -= 0.1;
+			if (TvZ < 0.0)
+			{
+				movimiento1 = false;
+				movimiento2 = true;
+			}
+		}
+
+		if (movimiento2)
+		{
+			TvZ += 0.1;
+			if (TvZ > 4.0)
+			{
+				movimiento2 = false;
+				movimiento3 = true;
+			}
+		}
+
+		if (movimiento3)
+		{
+			TvZ = 4.0;
+			if (TvZ = 4.0)
+			{
+				movimiento3 = false;
+				movimiento1 = true;
+			}
+		}
+
+	}
 
 		//Movimiento del personaje
 
@@ -913,6 +956,19 @@ void MouseCallback(GLFWwindow *window, double xPos, double yPos)
 // Moves/alters the camera positions based on user input
 void DoMovement()
 {
+	if (keys[GLFW_KEY_Y])
+	{
+		
+		movimientoTv = true;
+		
+	}
+
+	if (keys[GLFW_KEY_H])
+	{
+		movimientoTv = false;
+		
+
+	}
 
 	if (keys[GLFW_KEY_1])
 	{
