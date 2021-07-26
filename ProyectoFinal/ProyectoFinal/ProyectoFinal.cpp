@@ -91,8 +91,8 @@ bool recorrido7 = false;
 
 //Variables para animación de auto 1. 
 //Animación del coche
-float movKitX2 = 2.0;
-float movKitZ2 = -20.0;
+float movKitX2 = 0.0;
+float movKitZ2 = 0.0;
 float rotKit2 = 0.0;
 
 bool circuito2 = false;
@@ -105,7 +105,7 @@ bool recorridoF = false;
 bool recorridoG = false;
 
 // Deltatime
-GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
+GLfloat deltaTime = 1.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
 
 // Keyframes
@@ -358,47 +358,47 @@ int main()
 
 	GLfloat skyboxVertices[] = {
 		// Positions
-		-10.0f,  10.0f, -10.0f,
-		-10.0f, -10.0f, -10.0f,
-		 10.0f, -10.0f, -10.0f,
-		 10.0f, -10.0f, -10.0f,
-		 10.0f,  10.0f, -10.0f,
-		-10.0f,  10.0f, -10.0f,
+		-25.0f,  25.0f, -25.0f,
+		-25.0f, -25.0f, -25.0f,
+		 25.0f, -25.0f, -25.0f,
+		 25.0f, -25.0f, -25.0f,
+		 25.0f,  25.0f, -25.0f,
+		-25.0f,  25.0f, -25.0f,
 
-		-10.0f, -10.0f,  10.0f,
-		-10.0f, -10.0f, -10.0f,
-		-10.0f,  10.0f, -10.0f,
-		-10.0f,  10.0f, -10.0f,
-		-10.0f,  10.0f,  10.0f,
-		-10.0f, -10.0f,  10.0f,
+		-25.0f, -25.0f,  25.0f,
+		-25.0f, -25.0f, -25.0f,
+		-25.0f,  25.0f, -25.0f,
+		-25.0f,  25.0f, -25.0f,
+		-25.0f,  25.0f,  25.0f,
+		-25.0f, -25.0f,  25.0f,
 
-		10.0f, -10.0f, -10.0f,
-		10.0f, -10.0f,  10.0f,
-		10.0f,  10.0f,  10.0f,
-		10.0f,  10.0f,  10.0f,
-		10.0f,  10.0f, -10.0f,
-		10.0f, -10.0f, -10.0f,
+		25.0f, -25.0f, -25.0f,
+		25.0f, -25.0f,  25.0f,
+		25.0f,  25.0f,  25.0f,
+		25.0f,  25.0f,  25.0f,
+		25.0f,  25.0f, -25.0f,
+		25.0f, -25.0f, -25.0f,
 
-		-10.0f, -10.0f,  10.0f,
-		-10.0f,  10.0f,  10.0f,
-		 10.0f,  10.0f,  10.0f,
-		 10.0f,  10.0f,  10.0f,
-		 10.0f, -10.0f,  10.0f,
-		-10.0f, -10.0f,  10.0f,
+		-25.0f, -25.0f,  25.0f,
+		-25.0f,  25.0f,  25.0f,
+		 25.0f,  25.0f,  25.0f,
+		 25.0f,  25.0f,  25.0f,
+		 25.0f, -25.0f,  25.0f,
+		-25.0f, -25.0f,  25.0f,
 
-		-10.0f,  10.0f, -10.0f,
-		 10.0f,  10.0f, -10.0f,
-		 10.0f,  10.0f,  10.0f,
-		 10.0f,  10.0f,  10.0f,
-		-10.0f,  10.0f,  10.0f,
-		-10.0f,  10.0f, -10.0f,
+		-25.0f,  25.0f, -25.0f,
+		 25.0f,  25.0f, -25.0f,
+		 25.0f,  25.0f,  25.0f,
+		 25.0f,  25.0f,  25.0f,
+		-25.0f,  25.0f,  25.0f,
+		-25.0f,  25.0f, -25.0f,
 
-		-10.0f, -10.0f, -10.0f,
-		-10.0f, -10.0f,  10.0f,
-		 10.0f, -10.0f, -10.0f,
-		 10.0f, -10.0f, -10.0f,
-		-10.0f, -10.0f,  10.0f,
-		 10.0f, -10.0f,  10.0f
+		-25.0f, -25.0f, -25.0f,
+		-25.0f, -25.0f,  25.0f,
+		 25.0f, -25.0f, -25.0f,
+		 25.0f, -25.0f, -25.0f,
+		-25.0f, -25.0f,  25.0f,
+		 25.0f, -25.0f,  25.0f
 	};
 
 
@@ -640,64 +640,48 @@ int main()
 		//Repisa
 		view = camera.GetViewMatrix();
 		glm::mat4 model(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f)); 
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Repisa.Draw(lightingShader);
 
 		//Repisa2
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Repisa2.Draw(lightingShader);
 
 		//Repisa3
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Repisa3.Draw(lightingShader);
 
 		//Bocina
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Bocina.Draw(lightingShader);
 
 		//Cajonera
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cajonera.Draw(lightingShader);
 
 		//Cuadro
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Cuadro.Draw(lightingShader);
 
 		//MesaTv
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		MesaTv.Draw(lightingShader);
 
 		//Mesa de centro.
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		MesaCentro.Draw(lightingShader);
 
@@ -705,50 +689,42 @@ int main()
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
 		model = glm::translate(model, glm::vec3(TvX, TvY, TvZ));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Tv.Draw(lightingShader);
 
 		//Casa.
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Casa.Draw(lightingShader);
 
 		//Calle
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Calle.Draw(lightingShader);
 
 		//Auto
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(movKitX, -7.0f, movKitZ));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		model = glm::rotate(model, glm::radians(rotKit), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::translate(model, glm::vec3(movKitX, -0.0f, movKitZ));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Auto.Draw(lightingShader);
 
 		//Llatasdelanteras
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(movKitX, -7.0f, movKitZ));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		model = glm::rotate(model, glm::radians(rotKit), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::translate(model, glm::vec3(movKitX, 0.0f, movKitZ));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Llantasdelanteras.Draw(lightingShader);
 
 		//Llatastraseras
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(movKitX, -7.0f, movKitZ));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		model = glm::rotate(model, glm::radians(rotKit), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::translate(model, glm::vec3(movKitX, 0.0f, movKitZ));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Llantastraseras.Draw(lightingShader);
 
@@ -756,7 +732,6 @@ int main()
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
 		model = glm::translate(model, glm::vec3(movKitX2, -7.0f, movKitZ2));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Auto2.Draw(lightingShader);
 
@@ -764,7 +739,6 @@ int main()
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
 		model = glm::translate(model, glm::vec3(movKitX2, -7.0f, movKitZ2));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Llantasdelanteras2.Draw(lightingShader);
 
@@ -772,41 +746,30 @@ int main()
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
 		model = glm::translate(model, glm::vec3(movKitX2, -7.0f, movKitZ2));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Llantastraseras2.Draw(lightingShader);
 
 		//Marco puerta
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Marcopuerta.Draw(lightingShader);
 
 		//Puerta
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, -20.0f));
-		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Puerta.Draw(lightingShader);
 
 		////Silla.
 		//view = camera.GetViewMatrix();
 		//model = glm::mat4(1);
-		//model = glm::translate(model, glm::vec3(0.0f, -3.0f, 0.0f));
-		// model = glm::rotate(model, glm::radians(180.0f) , glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		//Silla.Draw(lightingShader);
 
 		////Jarron.
 		//view = camera.GetViewMatrix();
 		//model = glm::mat4(1);
-		//model = glm::translate(model, glm::vec3(0.0f, -3.0f, 0.0f));
-		// // model = glm::rotate(model, glm::radians(180.0f) , glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		//Jarron.Draw(lightingShader);
 
@@ -964,7 +927,7 @@ void animacion()
 		if (recorrido1)
 		{
 			movKitZ -= 0.5f;
-			if (movKitZ < -23)
+			if (movKitZ < -5)
 			{
 				recorrido1 = false;
 				recorrido2 = true;
@@ -974,10 +937,10 @@ void animacion()
 
 		if (recorrido2)
 		{
-			//rotKit = 45;
+			rotKit = 45;
 			movKitZ += 0.5f;
 			movKitX += 0.5f;
-			if (movKitX > 12)
+			if (movKitX > 10)
 			{
 				recorrido2 = false;
 				recorrido3 = true;
@@ -987,9 +950,9 @@ void animacion()
 		if (recorrido3)
 		{
 			rotKit = 0.0;
-			movKitZ += 10.0;
+			movKitZ += 1.0;
 
-			if (movKitZ > 130)
+			if (movKitZ > 80)
 			{
 				recorrido3 = false;
 				recorrido4 = true;
@@ -998,10 +961,10 @@ void animacion()
 
 		if (recorrido4)
 		{
-			//rotKit = 90;
-			movKitX += 10.0;
+			rotKit = 90;
+			movKitX += 1.0;
 
-			if (movKitX > 155)
+			if (movKitX > 80)
 			{
 				recorrido4 = false;
 				recorrido5 = true;
@@ -1010,10 +973,10 @@ void animacion()
 
 		if (recorrido5)
 		{
-			//rotKit = 180;
-			movKitZ -= 10.0;
+			rotKit = 180;
+			movKitZ -= 1.0;
 
-			if (movKitZ < -20)
+			if (movKitZ < -5)
 			{
 				recorrido5 = false;
 				recorrido6 = true; 
@@ -1022,8 +985,8 @@ void animacion()
 
 		if (recorrido6)
 		{
-			//rotKit = 270;
-			movKitX -= 10.0;
+			rotKit = 270;
+			movKitX -= 1.0;
 
 			if (movKitX < 4)
 			{
@@ -1037,7 +1000,7 @@ void animacion()
 			rotKit = 0.0;
 			movKitZ += 0.2;
 
-			if (movKitZ > -17)
+			if (movKitZ > 0)
 			{
 				recorrido7 = false;
 				recorrido1 = true; 
