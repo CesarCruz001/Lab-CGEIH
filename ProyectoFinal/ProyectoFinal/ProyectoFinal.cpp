@@ -851,8 +851,8 @@ void animacion()
 
 		if (movimiento1)
 		{
-			TvZ -= 0.1;
-			if (TvZ < 0.0)
+			TvZ += 0.1;
+			if (TvZ > 6.5)
 			{
 				movimiento1 = false;
 				movimiento2 = true;
@@ -861,8 +861,8 @@ void animacion()
 
 		if (movimiento2)
 		{
-			TvZ += 0.1;
-			if (TvZ > 4.0)
+			TvZ -= 0.1;
+			if (TvZ < 4.0)
 			{
 				movimiento2 = false;
 				movimiento3 = true;
