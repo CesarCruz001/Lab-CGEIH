@@ -65,6 +65,15 @@ bool movimiento1 = true;
 bool movimiento2 = false;
 bool movimiento3 = false;
 
+//Variables para animacion de puerta
+
+float rotpuerta =180.0f;
+
+bool movimientoPuerta = false;
+bool movP1 = true;
+bool movP2 = false;
+bool movP3 = false;
+
 // Deltatime
 GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
@@ -863,6 +872,41 @@ int main()
 	return 0;
 }
 
+void animacionPuerta()
+{
+	if (movimientoPuerta)
+	{
+		if (movP1)
+		{
+			rotpuerta += 1.0f;
+			if (rotpuerta > 295.0f)
+			{
+				movP1 = false;
+				movP2 = true;
+			}
+		}
+
+		if (movP2)
+		{
+			rotpuerta -= 1.0f;
+			if (rotpuerta < 180.0f)
+			{
+				movP2 = false;
+				movP3 = true;
+			}
+		}
+
+		if (movP3)
+		{
+			rotpuerta = 180.0f;
+			if (rotpuerta = 180.0f)
+			{
+				movP3 = false;
+				movP1 = true;
+			}
+		}
+	}
+}
 
 void animacion()
 {
