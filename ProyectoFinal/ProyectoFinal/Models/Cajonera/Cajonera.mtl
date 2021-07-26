@@ -5,6 +5,128 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Malla.jpg
 Ni 1.00
+newmtl Auto:lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Ventana.jpg
+Ni 1.00
+newmtl Auto:lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Llanta.jpg
+Ni 1.00
+newmtl Auto:lambert4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd metal_silver_004.jpg
+Ni 1.00
+newmtl Auto:lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Carro.jpg
+Ni 1.00
+newmtl Auto:lambert6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Carro.jpg
+Ni 1.00
+newmtl Auto:lambert7SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd metal_silver_004.jpg
+Ni 1.00
+newmtl Auto:lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd metal_silver_004.jpg
+Ni 1.00
+newmtl Auto:lambert9SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd metal_silver_004.jpg
+Ni 1.00
+newmtl Auto2:Back_light
+illum 4
+Kd 0.55 0.00 0.00
+Ka 0.55 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.83 0.83 0.83
+Ns 54.00
+newmtl Auto2:Brake_disk
+illum 4
+Kd 0.69 0.69 0.69
+Ka 0.69 0.69 0.69
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.54 0.54 0.54
+Ns 75.00
+newmtl Auto2:Chrom
+illum 4
+Kd 0.34 0.34 0.34
+Ka 0.34 0.34 0.34
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.54 0.54 0.54
+Ns 80.00
+newmtl Auto2:Front_glass
+illum 4
+Kd 0.59 0.59 0.59
+Ka 0.59 0.59 0.59
+Tf 0.35 0.35 0.35
+Ni 1.50
+Ks 0.83 0.83 0.83
+Ns 55.00
+newmtl Auto2:Material__21
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Body_diff.jpg
+map_Ka Body_diff.jpg
+Ni 1.50
+Ks 0.81 0.81 0.81
+Ns 55.00
+newmtl Auto2:Tire
+illum 4
+Kd 0.09 0.09 0.09
+Ka 0.09 0.09 0.09
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.39 0.39 0.39
+Ns 10.00
+newmtl Auto2:black_plast
+illum 4
+Kd 0.13 0.13 0.13
+Ka 0.13 0.13 0.13
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.32 0.32 0.32
+Ns 10.00
+newmtl Auto2:default1
+illum 4
+Kd 0.65 0.65 0.65
+Ka 0.65 0.65 0.65
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.54 0.54 0.54
+Ns 80.00
 newmtl Cajonera:lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
@@ -19,6 +141,69 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Arte.jpg
 Ni 1.00
+newmtl Door:text
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd WoodTexture.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_001
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd WoodTexture.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_003
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerTexture.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_005
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerDetailText.JPG
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_007
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerTexture.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_009
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerTexture.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_0013
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerDetailText.JPG
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 96.08
 newmtl Jarron:lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
@@ -206,4 +391,39 @@ Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd piso.jpg
+Ni 1.00
+newmtl lambert6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pisoext.jpg
+Ni 1.00
+newmtl lambert7SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pasto.jpg
+Ni 1.00
+newmtl lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pisopiedra.jpg
+Ni 1.00
+newmtl lambert9SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd concreto.jpg
+Ni 1.00
+newmtl lambert10SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pavimento.jpg
 Ni 1.00

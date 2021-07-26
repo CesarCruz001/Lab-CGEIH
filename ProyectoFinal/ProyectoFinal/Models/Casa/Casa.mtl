@@ -5,6 +5,13 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Malla.jpg
 Ni 1.00
+newmtl Audio1:lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Malla.jpg
+Ni 1.00
 newmtl Auto:lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
@@ -141,6 +148,69 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Arte.jpg
 Ni 1.00
+newmtl Door:text
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd WoodTexture.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_001
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd WoodTexture.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_003
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerTexture.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_005
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerDetailText.JPG
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_007
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerTexture.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_009
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerTexture.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 96.08
+newmtl Door:text_0013
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd LockerDetailText.JPG
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 96.08
 newmtl Jarron:lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
