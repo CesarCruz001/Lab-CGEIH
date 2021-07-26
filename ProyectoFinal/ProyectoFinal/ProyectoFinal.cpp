@@ -74,6 +74,21 @@ bool movP1 = true;
 bool movP2 = false;
 bool movP3 = false;
 
+//Variables para animación de auto 1. 
+//Animación del coche
+float movKitX = 2.0;
+float movKitZ = 4.0;
+float rotKit = 0.0;
+
+bool circuito = false;
+bool recorrido1 = true;
+bool recorrido2 = false;
+bool recorrido3 = false;
+bool recorrido4 = false;
+bool recorrido5 = false;
+bool recorrido6 = false;
+bool recorrido7 = false;
+
 // Deltatime
 GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
@@ -709,7 +724,8 @@ int main()
 		//Auto
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::translate(model, glm::vec3(movKitX, -7.0f, movKitZ));
+		model = glm::rotate(model, glm::radians(rotKit), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -718,7 +734,8 @@ int main()
 		//Llatasdelanteras
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::translate(model, glm::vec3(movKitX, -7.0f, movKitZ));
+		model = glm::rotate(model, glm::radians(rotKit), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -727,7 +744,8 @@ int main()
 		//Llatastraseras
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::translate(model, glm::vec3(movKitX, -7.0f, movKitZ));
+		model = glm::rotate(model, glm::radians(rotKit), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -945,6 +963,93 @@ void animacion()
 
 	}
 
+	if (circuito)
+	{
+		if (recorrido1)
+		{
+			movKitZ += 0.5f;
+			if (movKitZ > 10)
+			{
+				recorrido1 = false;
+				recorrido2 = true;
+			}
+
+		}
+
+		if (recorrido2)
+		{
+			//rotKit = 45;
+			movKitZ -= 0.5f;
+			movKitX -= 0.5f;
+			if (movKitX < -10)
+			{
+				recorrido2 = false;
+				recorrido3 = true;
+			}
+		}
+
+		if (recorrido3)
+		{
+			rotKit = 0.0;
+			movKitZ -= 2.0;
+
+			if (movKitZ < -150)
+			{
+				recorrido3 = false;
+				recorrido4 = true;
+			}
+		}
+
+		if (recorrido4)
+		{
+			//rotKit = 90;
+			movKitX -= 2.0;
+
+			if (movKitX < -165)
+			{
+				recorrido4 = false;
+				recorrido5 = true;
+			}
+		}
+
+		if (recorrido5)
+		{
+			//rotKit = 180;
+			movKitZ += 2.0;
+
+			if (movKitZ > 9)
+			{
+				recorrido5 = false;
+				recorrido6 = true; 
+			}
+		}
+
+		if (recorrido6)
+		{
+			//rotKit = 270;
+			movKitX += 2.0;
+
+			if (movKitX > 2)
+			{
+				recorrido6 = false; 
+				recorrido7 = true; 
+			}
+		}
+
+		if (recorrido7)
+		{
+			rotKit = 0.0;
+			movKitZ -= 0.2;
+
+			if (movKitZ < 7)
+			{
+				recorrido7 = false;
+				recorrido1 = true; 
+			}
+		}
+	}
+
+
 		//Movimiento del personaje
 
 		if (play)
@@ -1104,6 +1209,19 @@ void DoMovement()
 	{
 		movimientoTv = false;
 		
+
+	}
+	if (keys[GLFW_KEY_I])
+	{
+
+		circuito = true;
+
+	}
+
+	if (keys[GLFW_KEY_K])
+	{
+		circuito = false;
+
 
 	}
 
