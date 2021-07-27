@@ -708,7 +708,7 @@ int main()
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
 		model = glm::rotate(model, glm::radians(rotKit), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::translate(model, glm::vec3(movKitX, 0.0f, movKitZ));
+		model = glm::translate(model, glm::vec3(movKitX, -0.0f, movKitZ));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Auto.Draw(lightingShader);
 
@@ -731,21 +731,21 @@ int main()
 		//Auto2
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(movKitX2, 0.0f, movKitZ2));
+		model = glm::translate(model, glm::vec3(movKitX2, -7.0f, movKitZ2));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Auto2.Draw(lightingShader);
 
 		//Llatasdelanteras
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(movKitX2, 0.0f, movKitZ2));
+		model = glm::translate(model, glm::vec3(movKitX2, -7.0f, movKitZ2));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Llantasdelanteras2.Draw(lightingShader);
 
 		//Llatastraseras2
 		view = camera.GetViewMatrix();
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(movKitX2, 0.0f, movKitZ2));
+		model = glm::translate(model, glm::vec3(movKitX2, -7.0f, movKitZ2));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Llantastraseras2.Draw(lightingShader);
 
