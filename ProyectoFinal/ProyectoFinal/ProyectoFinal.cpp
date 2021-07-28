@@ -191,6 +191,8 @@ int main()
 	Model Puerta((char*)"Models/Puerta/Puerta.obj");
 	Model Marcopuerta((char*)"Models/Puerta/Marcopuerta.obj");
 	Model Sillon((char*)"Models/Sillon/Sillon.obj");
+	Model Maceta((char*)"Models/Maceta/Maceta.obj");
+	Model Comedor((char*)"Models/Comedor/Comedor.obj");
 	
 	// Set up vertex data (and buffer(s)) and attribute pointers
 	GLfloat vertices[] =
@@ -695,6 +697,23 @@ int main()
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Sillon.Draw(lightingShader);
 
+		//Maceta
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Maceta.Draw(lightingShader);
+
+		//Comedor
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Comedor.Draw(lightingShader);
 
 		glBindVertexArray(0);
 
