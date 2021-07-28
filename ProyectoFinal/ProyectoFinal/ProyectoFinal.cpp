@@ -107,40 +107,9 @@ bool recorridoG = false;
 GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
 
-// Keyframes
-float posX = PosIni.x, posY = PosIni.y, posZ = PosIni.z, rotRodIzq = 0, rotRodDer, rotCodoDer, rotCodoIzq;
-
-#define MAX_FRAMES 9
-int i_max_steps = 190;
-int i_curr_steps = 0;
-typedef struct _frame
-{
-	//Variables para GUARDAR Key Frames
-	float posX;		//Variable para PosicionX
-	float posY;		//Variable para PosicionY
-	float posZ;		//Variable para PosicionZ
-	float incX;		//Variable para IncrementoX
-	float incY;		//Variable para IncrementoY
-	float incZ;		//Variable para IncrementoZ
-	float rotRodIzq;
-	float rotRodDer;
-	float rotCodoDer;
-	float rotCodoIzq;
-	float rotInc;
-	float rotInc2;
-	float rotInc3;
-	float rotInc4;
-
-}FRAME;
-
-FRAME KeyFrame[MAX_FRAMES];
-int FrameIndex = 0;			//introducir datos
-bool play = false;
-int playIndex = 0;
-
 // Positions of the point lights
 glm::vec3 pointLightPositions[] = {
-	glm::vec3(posX,posY,posZ),
+	/*glm::vec3(posX,posY,posZ),*/
 	glm::vec3(0,0,0),
 	glm::vec3(0,0,0),
 	glm::vec3(0,0,0)
@@ -149,69 +118,11 @@ glm::vec3 pointLightPositions[] = {
 glm::vec3 LightP1;
 
 
-
-
-void saveFrame(void)
-{
-
-	printf("frameindex %d\n", FrameIndex);
-
-	KeyFrame[FrameIndex].posX = posX;
-	KeyFrame[FrameIndex].posY = posY;
-	KeyFrame[FrameIndex].posZ = posZ;
-
-	KeyFrame[FrameIndex].rotRodIzq = rotRodIzq;
-	KeyFrame[FrameIndex].rotRodDer = rotRodDer;
-
-	KeyFrame[FrameIndex].rotCodoDer = rotCodoDer;
-	KeyFrame[FrameIndex].rotCodoIzq = rotCodoIzq;
-
-
-	FrameIndex++;
-}
-
-void resetElements(void)
-{
-	posX = KeyFrame[0].posX;
-	posY = KeyFrame[0].posY;
-	posZ = KeyFrame[0].posZ;
-
-	rotRodIzq = KeyFrame[0].rotRodIzq;
-	rotRodDer = KeyFrame[0].rotRodDer;
-
-	rotCodoDer = KeyFrame[0].rotCodoDer;
-	rotCodoIzq = KeyFrame[0].rotCodoIzq;
-
-
-}
-
-void interpolation(void)
-{
-
-	KeyFrame[playIndex].incX = (KeyFrame[playIndex + 1].posX - KeyFrame[playIndex].posX) / i_max_steps;
-	KeyFrame[playIndex].incY = (KeyFrame[playIndex + 1].posY - KeyFrame[playIndex].posY) / i_max_steps;
-	KeyFrame[playIndex].incZ = (KeyFrame[playIndex + 1].posZ - KeyFrame[playIndex].posZ) / i_max_steps;
-
-	KeyFrame[playIndex].rotInc = (KeyFrame[playIndex + 1].rotRodIzq - KeyFrame[playIndex].rotRodIzq) / i_max_steps;
-	KeyFrame[playIndex].rotInc2 = (KeyFrame[playIndex + 1].rotRodDer - KeyFrame[playIndex].rotRodDer) / i_max_steps;
-
-	KeyFrame[playIndex].rotInc3 = (KeyFrame[playIndex + 1].rotCodoDer - KeyFrame[playIndex].rotCodoDer) / i_max_steps;
-	KeyFrame[playIndex].rotInc4 = (KeyFrame[playIndex + 1].rotCodoIzq - KeyFrame[playIndex].rotCodoIzq) / i_max_steps;
-}
-
-
-
-
 int main()
 {
 	// Init GLFW
 	glfwInit();
-	// Set all the required options for GLFW
-	/*(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);*/
+	
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
 	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Poyecto Final Lab CGEIH", nullptr, nullptr);
@@ -280,34 +191,7 @@ int main()
 	Model Puerta((char*)"Models/Puerta/Puerta.obj");
 	Model Marcopuerta((char*)"Models/Puerta/Marcopuerta.obj");
 	Model Sillon((char*)"Models/Sillon/Sillon.obj");
-	/*Model Silla((char*)"Models/Silla/Silla.obj");
-	Model Jarron((char*)"Models/Jarron/Jarron.obj");*/
-
-
-
-	// Build and compile our shader program
-
-	//Inicialización de KeyFrames
-
-	for (int i = 0; i < MAX_FRAMES; i++)
-	{
-		KeyFrame[i].posX = 0;
-		KeyFrame[i].incX = 0;
-		KeyFrame[i].incY = 0;
-		KeyFrame[i].incZ = 0;
-		KeyFrame[i].rotRodIzq = 0;
-		KeyFrame[i].rotInc = 0;
-		KeyFrame[i].rotRodDer = 0;
-		KeyFrame[i].rotInc2 = 0;
-		KeyFrame[i].rotCodoDer = 0;
-		KeyFrame[i].rotInc3 = 0;
-		KeyFrame[i].rotCodoIzq = 0;
-		KeyFrame[i].rotInc4 = 0;
-
-	}
-
-
-
+	
 	// Set up vertex data (and buffer(s)) and attribute pointers
 	GLfloat vertices[] =
 	{
@@ -612,15 +496,6 @@ int main()
 		// Pass the matrices to the shader
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
-
-		// Bind diffuse map
-		//glBindTexture(GL_TEXTURE_2D, texture1);*/
-
-		// Bind specular map
-		/*glActiveTexture(GL_TEXTURE1);
-		glBindTexture(GL_TEXTURE_2D, texture2);*/
-
-
 		glBindVertexArray(VAO);
 		glm::mat4 tmp = glm::mat4(1.0f); //Temp
 
@@ -820,28 +695,6 @@ int main()
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Sillon.Draw(lightingShader);
 
-		////Silla.
-		//view = camera.GetViewMatrix();
-		//model = glm::mat4(1);
-		//model = glm::translate(model, glm::vec3(0.0f, -3.0f, 0.0f));
-		// model = glm::rotate(model, glm::radians(180.0f) , glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
-		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		//Silla.Draw(lightingShader);
-
-		////Jarron.
-		//view = camera.GetViewMatrix();
-		//model = glm::mat4(1);
-		//model = glm::translate(model, glm::vec3(0.0f, -3.0f, 0.0f));
-		// // model = glm::rotate(model, glm::radians(180.0f) , glm::vec3(0.0f, 1.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
-		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		//Jarron.Draw(lightingShader);
-
-
-
-
-
 
 		glBindVertexArray(0);
 
@@ -868,7 +721,7 @@ int main()
 			model = glm::translate(model, pointLightPositions[i]);
 			model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
 			glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-			glDrawArrays(GL_TRIANGLES, 0, 36);
+			//glDrawArrays(GL_TRIANGLES, 0, 36);
 		}
 		glBindVertexArray(0);
 
@@ -1159,72 +1012,13 @@ void animacion()
 			}
 		}
 	}
-
-	//Movimiento del personaje
-
-	if (play)
-	{
-		if (i_curr_steps >= i_max_steps) //end of animation between frames?
-		{
-			playIndex++;
-			if (playIndex > FrameIndex - 2)	//end of total animation?
-			{
-				printf("termina anim\n");
-				playIndex = 0;
-				play = false;
-			}
-			else //Next frame interpolations
-			{
-				i_curr_steps = 0; //Reset counter
-								  //Interpolation
-				interpolation();
-			}
-		}
-		else
-		{
-			//Draw animation
-			posX += KeyFrame[playIndex].incX;
-			posY += KeyFrame[playIndex].incY;
-			posZ += KeyFrame[playIndex].incZ;
-
-			rotRodIzq += KeyFrame[playIndex].rotInc;
-			rotRodDer += KeyFrame[playIndex].rotInc2;
-			rotCodoDer += KeyFrame[playIndex].rotInc3;
-			rotCodoIzq += KeyFrame[playIndex].rotInc4;
-
-			i_curr_steps++;
-		}
-
-	}
 }
 
 
 // Is called whenever a key is pressed/released via GLFW
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
-	if (keys[GLFW_KEY_L])
-	{
-		if (play == false && (FrameIndex > 1))
-		{
-
-			resetElements();
-			//First Interpolation				
-			interpolation();
-
-			play = true;
-			playIndex = 0;
-			i_curr_steps = 0;
-		}
-		else
-		{
-			play = false;
-		}
-
-	}
-
-
-
-
+	
 	if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
 	{
 		glfwSetWindowShouldClose(window, GL_TRUE);
@@ -1341,73 +1135,6 @@ void DoMovement()
 
 
 	}
-
-	if (keys[GLFW_KEY_1])
-	{
-
-		rot += 1;
-
-	}
-
-	if (keys[GLFW_KEY_2])
-	{
-		if (rotRodIzq < 80.0f)
-			rotRodIzq += 1.0f;
-
-	}
-
-	if (keys[GLFW_KEY_3])
-	{
-		if (rotRodIzq > -45)
-			rotRodIzq -= 1.0f;
-
-	}
-
-	if (keys[GLFW_KEY_4])
-	{
-		if (rotRodDer < 80.0f)
-			rotRodDer += 1.0f;
-
-	}
-
-	if (keys[GLFW_KEY_5])
-	{
-		if (rotRodDer > -45)
-			rotRodDer -= 1.0f;
-
-	}
-
-	if (keys[GLFW_KEY_6])
-	{
-		if (rotCodoDer < 80.0f)
-			rotCodoDer += 1.0f;
-
-	}
-
-	if (keys[GLFW_KEY_7])
-	{
-		if (rotCodoDer > -45)
-			rotCodoDer -= 1.0f;
-
-	}
-
-	if (keys[GLFW_KEY_8])
-	{
-		if (rotCodoIzq < 80.0f)
-			rotCodoIzq += 1.0f;
-
-	}
-
-	if (keys[GLFW_KEY_9])
-	{
-		if (rotCodoIzq > -45)
-			rotCodoIzq -= 1.0f;
-
-	}
-
-
-
-
 
 	// Camera controls
 	if (keys[GLFW_KEY_W] || keys[GLFW_KEY_UP])
