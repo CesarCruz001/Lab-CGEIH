@@ -60,6 +60,34 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd concreto.jpg
 Ni 1.00
+newmtl Comedor:lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Blanca.jpg
+Ni 1.00
+newmtl Comedor:lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Chocolate.jpg
+Ni 1.00
+newmtl Comedor:lambert4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Chocolate.jpg
+Ni 1.00
+newmtl Comedor:lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Chocolate.jpg
+Ni 1.00
 newmtl Mesa_2:lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
