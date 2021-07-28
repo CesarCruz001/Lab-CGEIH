@@ -141,41 +141,6 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Madera.jpg
 Ni 1.00
-newmtl Calle:initialShadingGroup
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd ExteriorBlanco.jpg
-Ni 1.00
-newmtl Calle:lambert7SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd pasto.jpg
-Ni 1.00
-newmtl Calle:lambert8SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd pisopiedra.jpg
-Ni 1.00
-newmtl Calle:lambert9SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd concreto.jpg
-Ni 1.00
-newmtl Calle:lambert10SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd pavimento.jpg
-Ni 1.00
 newmtl Cuadro:lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
@@ -461,4 +426,11 @@ Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd concreto.jpg
+Ni 1.00
+newmtl lambert10SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pavimento.jpg
 Ni 1.00
