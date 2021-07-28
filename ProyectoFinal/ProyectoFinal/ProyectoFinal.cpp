@@ -279,6 +279,7 @@ int main()
 	Model Llantastraseras2((char*)"Models/Auto2/Llantastraseras2.obj");
 	Model Puerta((char*)"Models/Puerta/Puerta.obj");
 	Model Marcopuerta((char*)"Models/Puerta/Marcopuerta.obj");
+	Model Sillon((char*)"Models/Sillon/Sillon.obj");
 	/*Model Silla((char*)"Models/Silla/Silla.obj");
 	Model Jarron((char*)"Models/Jarron/Jarron.obj");*/
 
@@ -809,6 +810,15 @@ int main()
 		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		Puerta.Draw(lightingShader);
+
+		//Sillon
+		view = camera.GetViewMatrix();
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(2.0f, -7.0f, 4.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		Sillon.Draw(lightingShader);
 
 		////Silla.
 		//view = camera.GetViewMatrix();
